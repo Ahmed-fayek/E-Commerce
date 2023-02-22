@@ -1,0 +1,167 @@
+.basket {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.basket .container {
+    width: 100%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.justify-content-between {
+    align-items: center;
+}
+
+.justify-content-between span {
+    background-color: transparent;
+    margin: 0;
+}
+
+.basket-flex {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.basket-flex .rounded-3 {
+    max-height: 800px;
+}
+
+.basket .left-bas {
+    width: 800px;
+    flex-basis: 1;
+}
+
+.basket-prods-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    bottom: 0;
+}
+
+.bottom-btns {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* ************* basket card************* */
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto+Slab&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+select {
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+img {
+    object-fit: contain;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p.h4 {
+    font-family: 'Roboto Slab', serif;
+}
+
+.rating {
+    font-size: 0.7rem;
+}
+
+.fa-star,
+.reviews {
+    color: #daa520;
+}
+
+div.h4 {
+    font-size: 1.8rem;
+    color: #d4a838;
+    font-family: 'Lora', serif;
+    margin: 0;
+    max-height: 50px;
+}
+
+.p-title {
+    font-size: 1.1rem;
+    height: 100px;
+    margin-bottom: auto;
+}
+
+.card {
+    position: relative;
+}
+
+.card:hover {
+    border: 1px solid #000;
+    box-shadow: 3px 3px 30px rgb(166, 255, 144);
+}
+
+.red {
+    background-color: #e03e3e;
+    position: absolute;
+    color: #fff;
+    border-radius: 5px;
+    right: 5px;
+    top: 5px;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media(max-width:800px) {
+    .wrapper {
+        margin: 20px 10px;
+    }
+
+    p.h4 {
+        font-size: 1.35rem;
+        padding-top: 10px;
+    }
+}
+
+@media(max-width:767px) {
+    .wrapper {
+        max-width: 500px;
+        margin: 20px auto;
+
+    }
+}
+
+@media(max-width:424px) {
+    .wrapper {
+        width: 100%;
+        margin: auto;
+    }
+
+    div.text-muted {
+        font-size: 0.75rem;
+    }
+}
