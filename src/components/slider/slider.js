@@ -1,32 +1,14 @@
-import image2 from './../images/image1.jpg';
-import image1 from './../images/image2.jpeg';
-import image3 from './../images/image3.png';
 import './sidepar.css'
 function Slider() {
     return (
-        <>
-            <div id="carouselExample" className="carousel slide">
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src={image1} className="d-block w-100 me" alt="..."></img>
-                    </div>
-                    <div className="carousel-item">
-                        <img src={image2} className="d-block w-100 me" alt="..."></img>
-                    </div>
-                    <div className="carousel-item">
-                        <img src={image3} className="d-block w-100 me" alt="..."></img>
-                    </div>
-                </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
+        <div className='landing-page'>
+            <h1>Welcome to <span >MARKETKO</span></h1>
+            <div>
+                <p>Your appearance </p>
+                <p>shows your quality!</p>
+                <a href='#categoty' className='bottom btn btn-primary header-btn'> explore category</a>
+                <a href='#all-products' className='bottom btn btn-primary header-btn'> explore all products</a>
             </div>
-        </>
-    )
+        </div>)
 }
 export default Slider;

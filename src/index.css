@@ -17,26 +17,13 @@ code {
   flex-wrap: wrap;
 }
 
-.main-page .landing {
-  display: flex;
-  justify-content: space-between;
+.main-page .slider {
+  height: 80vh;
   width: 100%;
-  min-height: 100%;
-
+  background-image: url('./components/images/image3.png');
+  background-size: cover;
 }
 
-.landing .sidepar {
-  display: flex;
-  flex-wrap: wrap;
-
-}
-
-.landing .slider {
-  max-width: 80%;
-
-}
-
-
-.carouselExample .main-page .main-view {
+.main-page .main-view {
   width: 100%;
 }

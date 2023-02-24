@@ -1,28 +1,21 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import './cards.css'
 import Product from './product';
 import Filter from '../filter/filter';
+import { Productcontext } from '../services/productsContext';
 function Cards() {
 
-    const [prod, setProd] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:9000/product')
-            .then((res) => res.json())
-            .then((json) => setProd(json))
-    }, [])
-
+    const prod = useContext(Productcontext)
     return (
         <div key={prod.id} >
-            <Filter />
-            <div className="prods-containerr">
+            <div id='categoty'>
+                <Filter />
+            </div>
+            <div id='all-products' className="prods-containerr">
                 {prod.map((product) => {
                     return (
-                        <>
-                            <Product key={product.id} product={product} />
-
-                        </>
-
+                        <Product key={product.id} product={product} />
                     )
                 })}
             </div>

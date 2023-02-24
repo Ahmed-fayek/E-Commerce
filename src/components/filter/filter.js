@@ -14,7 +14,6 @@ function Filter() {
     let [fprods, setfprods] = useState([]);
     let { Filt } = useParams()
 
-    // console.log(prods)
 
     useEffect(() => {
 
@@ -38,9 +37,8 @@ function Filter() {
                 <div className='filter'>
                     {
                         prods.map((el) => {
-                            return (<>
+                            return (
                                 <Link key={el} to={`/user/${userid}/${el}`}  >{el}</Link>
-                            </>
                             )
                         })
 
@@ -55,9 +53,7 @@ function Filter() {
 
                     {fprods.map((el) => {
                         return (
-                            <>
-                                <Product key={el.id} product={el} />
-                            </>
+                            <Product key={el.id} product={el} />
 
                         )
                     })}

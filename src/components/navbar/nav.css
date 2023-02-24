@@ -1,11 +1,6 @@
-nav {
-    background-color: rgb(58, 58, 58);
-}
-
 .w-co {
     color: white;
     font-size: 20px;
-
     transition: all .5s ease-in;
     -webkit-transition: all .5s ease-in;
     -moz-transition: all .5s ease-in;
@@ -13,13 +8,7 @@ nav {
     -o-transition: all .5s ease-in;
 }
 
-.w-co:hover {
-    color: aqua;
-}
 
-.me {
-    height: 500px;
-}
 
 .show-bas {
     display: flex;
@@ -42,6 +31,10 @@ nav {
     color: rgb(247, 120, 120);
 }
 
+.drop-down {
+    z-index: 2;
+}
+
 .show-bas p {
     display: none;
     text-align: center;
@@ -54,7 +47,6 @@ nav {
     -moz-transition: all .2s ease-in;
     -ms-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
-
 }
 
 .fa-cart-shopping {
@@ -74,4 +66,183 @@ nav {
 .fa-store {
     font-size: 30px;
     margin-left: 15px;
+}
+
+
+.navb {
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+    background-color: black;
+}
+
+.navb .r-navb {
+    display: flex;
+    align-items: center;
+}
+
+.navb .r-navb h3 {
+    position: relative;
+    padding: 0 5px;
+    /* border-left: 5px solid rgb(255, 255, 255);
+
+    border-right: 5px solid rgb(255, 255, 255); */
+
+}
+
+.navb .r-navb h3 a {
+    color: white;
+    text-decoration: none;
+    transition: all.5s ease-in;
+    -webkit-transition: all.5s ease-in;
+    -moz-transition: all.5s ease-in;
+    -ms-transition: all.5s ease-in;
+    -o-transition: all.5s ease-in;
+}
+
+.navb .r-navb h3 a:hover {
+    color: aqua;
+
+}
+
+.navb .l-navb {
+    display: flex;
+    align-items: center;
+}
+
+.navb .l-navb ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navb .l-navb ul li {
+    list-style-type: none;
+}
+
+.navb .l-navb ul li a {
+    text-decoration: none;
+    color: white;
+
+}
+
+
+
+.show li {
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.show li:hover .w-co {
+    color: aqua;
+}
+
+.drop-down li {
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.drop-down li a {
+    width: 100%;
+}
+
+.drop-down li:hover .w-co {
+    color: aqua;
+
+}
+
+
+
+.navb .l-navb ul li button {
+    color: white;
+    background-color: transparent;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid aqua;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.navb .l-navb ul li button:hover {
+    background-color: aqua;
+
+}
+
+
+.bars {
+    width: 60px;
+    display: none;
+    flex-direction: column;
+}
+
+.bars span {
+    height: 3px;
+    width: 40px;
+    margin: 4px;
+    background-color: white;
+
+}
+
+.show {
+    display: flex;
+}
+
+
+
+@media (max-width: 735px) {
+    .navb .l-navb .drop-down {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(22, 22, 22);
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .show {
+        display: none;
+    }
+
+    .bars {
+        display: flex;
+    }
+}
+
+@media (min-width: 701px) {
+    .navb .l-navb .drop-down {
+        display: none;
+
+    }
+
+
+
 }

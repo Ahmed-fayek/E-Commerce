@@ -5,7 +5,6 @@ import axios from "axios";
 function EditProduct() {
     let { productId } = useParams()
     let { userid } = useParams()
-
     let [prod, setprod] = useState([])
 
     useEffect(() => {

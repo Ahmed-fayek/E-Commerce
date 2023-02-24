@@ -1,4 +1,46 @@
-.me {
-    height: 80%;
-    max-height: 90vh;
+.landing-page {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.86);
+}
+
+.landing-page h1 {
+    width: 600px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 30px;
+    margin: 0 25px;
+
+}
+
+.landing-page div {
+    margin: 0 25px;
+}
+
+.landing-page h1 span {
+    color: aqua;
+    font-size: 60px;
+    margin-left: 10px;
+}
+
+.landing-page p {
+    color: white;
+    letter-spacing: 3px;
+    font-size: 2.1em;
+}
+
+.landing-page a {
+    margin-left: 25px;
+    margin-top: 20px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
 }

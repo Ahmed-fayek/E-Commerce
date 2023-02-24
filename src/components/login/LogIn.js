@@ -1,6 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { useEffect, useState } from 'react';
+import './../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import './../../../node_modules/bootstrap/dist/js/bootstrap.js';
 function LogIn() {
     let [users, setUser] = useState();
     useEffect(() => {

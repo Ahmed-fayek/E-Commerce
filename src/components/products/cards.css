@@ -1,6 +1,5 @@
 .prods-containerr {
     margin: auto;
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -8,7 +7,7 @@
 }
 
 .prods-containerr .wrapper {
-    margin-bottom: 15px;
+    margin: 20px;
 }
 
 .prods-dets {
@@ -27,7 +26,6 @@
 .det-view .card {
     width: 100%;
     margin-top: 35px;
-    background-color: white;
 }
 
 .similar-products {
