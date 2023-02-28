@@ -3,7 +3,6 @@ import './Login.css';
 import { useContext, useEffect, useState } from 'react';
 import './../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import './../../../node_modules/bootstrap/dist/js/bootstrap.js';
-import Counter from '../services/Counter';
 function LogIn() {
 
 

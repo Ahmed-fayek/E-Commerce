@@ -9,43 +9,39 @@ function MyBasket() {
     let [fprods, setfprods] = useState([]);
     let [allprods, setallprods] = useState([]);
     let [userprods, setuserprods] = useState([]);
+    let subtotal = 0;
+
 
     useEffect(() => {
-
         fetch(`http://localhost:9000/users/`)
             .then((res) => res.json())
             .then((json) => setfprods(json))
     }, [])
     useEffect(() => {
-
         fetch(`http://localhost:9000/product`)
             .then((res) => res.json())
-            .then((data) => {
-                setallprods(data)
-            })
+            .then((data) => setallprods(data))
     }, [])
 
-    let subtotal = 0;
     const buyConfirm = () => {
         Swal.fire({
             title: `Confirm `,
             showCancelButton: true
         })
     }
-    useEffect(() => {
-        fprods.map((ele) => {
-            if (ele.userrrid === userid) {
-                allprods.map((products) => {
-                    if (ele.products[0].prodid === products.id) {
-                        userprods.push(products)
-                    }
 
-                })
-            }
-        })
-    }, [fprods])
+    fprods.map((ele) => {
+        if (ele.userrrid === userid) {
+            allprods.map((products) => {
+                if (ele.products[0].prodid === products.id) {
+                    userprods.push({ 'productval': products, 'user': ele })
+                    subtotal += products.price * ele.products[0].amount;
+                }
 
-    console.log(userprods)
+            })
+        }
+    })
+
 
 
     return (<>
@@ -73,10 +69,9 @@ function MyBasket() {
                     <div className='basket-prods-view'>
                         {
                             userprods.map((el) => {
-                                subtotal += el.price;
                                 return (
                                     <div key={el.id}>
-                                        <BasketProduct product={el} />
+                                        <BasketProduct allproduct={el} />
                                     </div>
                                 )
 

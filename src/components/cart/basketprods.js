@@ -2,19 +2,42 @@
 import { useNavigate, useParams } from "react-router-dom";
 import './../products/cards.css'
 import Swal from "sweetalert2";
+import axios from "axios";
 
 function BasketProduct(props) {
-    const { product } = props;
+    const { allproduct } = props;
+    console.log(allproduct.user.products[0].prodid)
+    const product = allproduct.productval;
+
     let userid = window.localStorage.userid;
     let navigate = useNavigate()
 
-    const Deleteproduct = (prod) => {
+    const Updateproduct = (prod) => {
+        console.log(prod)
         Swal.fire({
-            title: `Are you sure you want to delete this product`,
+            title: ` how many items you want? <br><input id='amVal' value=${allproduct.user.products[0].amount} />`,
             showCancelButton: true
         }).then((data) => {
             if (data.isConfirmed) {
-                fetch(`http://localhost:9000/users/${prod.id}`, { method: "DELETE" })
+                let amval = document.getElementById('amVal').value;
+                if (amval > 0) {
+                    axios({
+                        method: 'put',
+                        url: `http://localhost:9000/users/${allproduct.user.id}`,
+                        data:
+                        {
+                            products: [
+                                {
+                                    prodid: allproduct.user.id,
+                                    amount: amval
+                                }
+                            ],
+                            userrrid: userid,
+                        }
+                    })
+                } else {
+                    fetch(`http://localhost:9000/users/${prod}`, { method: "DELETE" })
+                }
             }
 
 
@@ -34,6 +57,7 @@ function BasketProduct(props) {
                     </div>
                     <b className="px-2">
                         <p className="h4 p-title">{product.title}</p>
+                        <p className="h4">You have : {allproduct.user.products[0].amount}</p>
                     </b>
                     <div className="d-flex align-items-center justify-content-start rating border-top border-bottom py-2">
                         <div className="text-muted text-uppercase px-2 border-right">insto2007</div>
@@ -61,7 +85,7 @@ function BasketProduct(props) {
                                 navigate(`/user/products/${product.id}`)
                             }} to={`/user/products/${product.id}`}>Go To Details</p>
 
-                            <span onClick={() => { Deleteproduct(product) }} className="del-Basket-b bottom btn btn-primary " >delete</span>
+                            <span onClick={() => { Updateproduct(allproduct.user.id) }} className="del-Basket-b bottom btn btn-primary " >Update</span>
                         </div>
 
                     </div>
