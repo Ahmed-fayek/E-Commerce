@@ -3,7 +3,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Slider from '../slider/slider';
 import Cards from '../products/cards';
 function Home(props) {
-  const { userid } = props;
   return (<div className='main-page'>
     <div className='slider'>
       <Slider />

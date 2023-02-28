@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react';
-import { useEffect } from 'react';
+import { useContext } from 'react';
 import './cards.css'
 import Product from './product';
 import Filter from '../filter/filter';
@@ -19,6 +18,7 @@ function Cards() {
                     )
                 })}
             </div>
+
         </div>
     )
 }

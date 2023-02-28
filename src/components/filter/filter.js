@@ -8,7 +8,7 @@ import Product from '../products/product';
 
 
 function Filter() {
-    const { userid } = useParams();
+    let userid = window.localStorage.userid;
 
     const [prods, setprods] = useState([]);
     let [fprods, setfprods] = useState([]);
@@ -38,12 +38,12 @@ function Filter() {
                     {
                         prods.map((el) => {
                             return (
-                                <Link key={el} to={`/user/${userid}/${el}`}  >{el}</Link>
+                                <Link key={el} to={`/user/${el}`}  >{el}</Link>
                             )
                         })
 
                     }
-                    <Link to={`/user/${userid}`}  >All</Link>
+                    <Link to={`/user/`}  >All</Link>
 
                 </div>
 
@@ -64,4 +64,3 @@ function Filter() {
 }
 export default Filter;
 
-//

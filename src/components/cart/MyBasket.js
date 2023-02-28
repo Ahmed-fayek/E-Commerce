@@ -5,40 +5,48 @@ import Swal from 'sweetalert2';
 import Navbar from '../navbar/navbar';
 import BasketProduct from './basketprods';
 function MyBasket() {
-    let { userid } = useParams();
+    let userid = window.localStorage.userid;
     let [fprods, setfprods] = useState([]);
+    let [allprods, setallprods] = useState([]);
     let [userprods, setuserprods] = useState([]);
-
 
     useEffect(() => {
 
         fetch(`http://localhost:9000/users/`)
             .then((res) => res.json())
-            .then((json) => {
-                setfprods(json)
-            }
-
-
-            )
+            .then((json) => setfprods(json))
     }, [])
+    useEffect(() => {
 
+        fetch(`http://localhost:9000/product`)
+            .then((res) => res.json())
+            .then((data) => {
+                setallprods(data)
+            })
+    }, [])
 
     let subtotal = 0;
     const buyConfirm = () => {
         Swal.fire({
             title: `Confirm `,
             showCancelButton: true
-        }).then((data) => { })
+        })
     }
     useEffect(() => {
         fprods.map((ele) => {
             if (ele.userrrid === userid) {
-                userprods.push(ele)
+                allprods.map((products) => {
+                    if (ele.products[0].prodid === products.id) {
+                        userprods.push(products)
+                    }
+
+                })
             }
         })
     }, [fprods])
 
-    console.log(userprods);
+    console.log(userprods)
+
 
     return (<>
         <Navbar userid={userid} />
@@ -49,7 +57,7 @@ function MyBasket() {
             <div className='basket-flex'>
                 <div className='left-bas'>
                     <div className="col-lg-7">
-                        <Link className="bottom btn btn-primary dets" to={`/user/${userid}`}><i
+                        <Link className="bottom btn btn-primary dets" to={`/user/`}><i
                             className="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</Link>
                         <hr />
 
@@ -67,8 +75,9 @@ function MyBasket() {
                             userprods.map((el) => {
                                 subtotal += el.price;
                                 return (
-                                    <BasketProduct product={el} />
-
+                                    <div key={el.id}>
+                                        <BasketProduct product={el} />
+                                    </div>
                                 )
 
 
@@ -101,28 +110,28 @@ function MyBasket() {
                             <div className="form-outline form-white mb-4">
                                 <input type="text" id="typeName" className="form-control form-control-lg" siez="17"
                                     placeholder="Cardholder's Name" />
-                                <label className="form-label" for="typeName">Cardholder's Name</label>
+                                <label className="form-label">Cardholder's Name</label>
                             </div>
 
                             <div className="form-outline form-white mb-4">
                                 <input type="text" id="typeText" className="form-control form-control-lg" siez="17"
                                     placeholder="1234 5678 9012 3457" minLength="19" maxLength="19" />
-                                <label className="form-label" for="typeText">Card Number</label>
+                                <label className="form-label"  >Card Number</label>
                             </div>
 
                             <div className="row mb-4">
                                 <div className="col-md-6">
                                     <div className="form-outline form-white">
                                         <input type="text" id="typeExp" className="form-control form-control-lg"
-                                            placeholder="MM/YYYY" size="7" minlength="7" maxLength="7" />
-                                        <label className="form-label" for="typeExp">Expiration</label>
+                                            placeholder="MM/YYYY" size="7" minLength="7" maxLength="7" />
+                                        <label className="form-label" >Expiration</label>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-outline form-white">
-                                        <input type="password" id="typeText" className="form-control form-control-lg"
+                                        <input type="password" id="typecvv" className="form-control form-control-lg"
                                             placeholder="&#9679;&#9679;&#9679;" size="1" minLength="3" maxLength="3" />
-                                        <label className="form-label" for="typeText">Cvv</label>
+                                        <label className="form-label"  >Cvv</label>
                                     </div>
                                 </div>
                             </div>

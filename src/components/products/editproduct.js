@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function EditProduct() {
     let { productId } = useParams()
-    let { userid } = useParams()
+    let userid = window.localStorage.userid;
     let [prod, setprod] = useState([])
 
     useEffect(() => {
@@ -38,7 +38,7 @@ function EditProduct() {
                 }
             }
         }).then((data) => {
-            navigate(`/user/${userid}/products`)
+            navigate(`/user/products`)
         });
     }
 
@@ -66,7 +66,7 @@ function EditProduct() {
             </div>
 
             <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={`/user/${userid}/products`} className="btn btn-danger">cancel</Link>
+            <Link to={`/user/products`} className="btn btn-danger">cancel</Link>
         </form></>)
 }
 export default EditProduct;

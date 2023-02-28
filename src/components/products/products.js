@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Swal from 'sweetalert2'
 import Navbar from "../navbar/navbar";
 function Products() {
-    let { userid } = useParams()
+    let userid = window.localStorage.userid;
     let [products, setproducts] = useState([]);
     useEffect(() =>
         getAllProducts()
@@ -30,7 +30,7 @@ function Products() {
         <Navbar userid={userid} />
 
         <h1>products</h1>
-        <Link to={`/user/${userid}/addproducts/add`} className="btn btn-success">Add new product</Link>
+        <Link to={`/user/addproducts/add`} className="btn btn-success">Add new product</Link>
         <table className="table">
             <thead>
 
@@ -49,7 +49,7 @@ function Products() {
                         <td>{el.price}</td>
                         <td><img height={`50px`} src={el.image} ></img></td>
                         <td>
-                            <Link to={`/user/${userid}/products/edit/${el.id}`} className="btn btn-info">Update</Link>
+                            <Link to={`/user/products/edit/${el.id}`} className="btn btn-info">Update</Link>
                             <button onClick={() => deleteproduct(el)} className="btn btn-danger">Delete</button>
                         </td>
                     </tr>)

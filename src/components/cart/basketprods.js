@@ -5,8 +5,9 @@ import Swal from "sweetalert2";
 
 function BasketProduct(props) {
     const { product } = props;
-    let { userid } = useParams();
+    let userid = window.localStorage.userid;
     let navigate = useNavigate()
+
     const Deleteproduct = (prod) => {
         Swal.fire({
             title: `Are you sure you want to delete this product`,
@@ -57,8 +58,8 @@ function BasketProduct(props) {
                         </div>
                         <div className="btns">
                             <p className="bottom btn btn-primary dets" onClick={() => {
-                                navigate(`/user/${userid}/products/${product.id}`)
-                            }} to={`/user/${userid}/products/${product.id}`}>Go To Details</p>
+                                navigate(`/user/products/${product.id}`)
+                            }} to={`/user/products/${product.id}`}>Go To Details</p>
 
                             <span onClick={() => { Deleteproduct(product) }} className="del-Basket-b bottom btn btn-primary " >delete</span>
                         </div>

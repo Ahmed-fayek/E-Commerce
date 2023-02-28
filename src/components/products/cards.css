@@ -48,3 +48,12 @@
 .similar-products-view .card {
     margin: auto;
 }
+
+.del-Basket-b {
+    padding-bottom: 0;
+    height: 40px;
+}
+
+#amount :placeholder-shown {
+    font-size: 5px;
+}

@@ -14,16 +14,14 @@ function LoginDirector() {
     return (<>
         <Routes>
             <Route path="/" element={<><LogIn /></>}></Route>
-            <Route path="/register" element={<><Register /></>}></Route>
-            <Route path="/user/:userid" element={<UserHome />}></Route>
-        </Routes>
-        <Routes>
-            <Route path='/user/:userid/products' element={<Products />} />
-            <Route path='/user/:userid/addproducts/add' element={<Add />} />
-            <Route path='/user/:userid/products/:productId' element={<><Navbar /><ProductDetails /></>} />
-            <Route path='/user/:userid/products/edit/:productId' element={<><Navbar /><EditProduct /></>} />
-            <Route path='/user/:userid/:Filt' element={<><Navbar /> <Filter /></>} />
-            <Route path={`/user/basket/:userid`} element={<MyBasket />} />
+            <Route path="/register" element={<><Register /></>} />
+            <Route path="/user/*" element={<UserHome />}></Route>
+            <Route path='/user/products' element={<Products />} />
+            <Route path='/user/addproducts/add' element={<Add />} />
+            <Route path='/user/products/:productId' element={<><Navbar /><ProductDetails /></>} />
+            <Route path='/user/products/edit/:productId' element={<><Navbar /><EditProduct /></>} />
+            <Route path='/user/:Filt' element={<><Navbar /> <Filter /></>} />
+            <Route path={`/user/basket`} element={<MyBasket />} />
         </Routes>
     </>)
 }

@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 
 function Add() {
-    let { userid } = useParams()
+    let userid = window.localStorage.userid;
     let navigate = useNavigate();
     const [title, settitle] = useState('')
     const [price, setprice] = useState(0)
@@ -20,7 +20,7 @@ function Add() {
                 description
             }
         }).then((data) => {
-            navigate(`/user/${userid}/products`)
+            navigate(`/user/products`)
         });
     }
 
@@ -41,7 +41,7 @@ function Add() {
             </div>
 
             <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={`/user/${userid}/products`} className="btn btn-danger">Cancel </Link>
+            <Link to={`/user/products`} className="btn btn-danger">Cancel </Link>
         </form></>)
 }
 export default Add;

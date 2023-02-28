@@ -66,10 +66,13 @@ function Register() {
                             <span className="button__text">LogIn</span>
                             <i className="button__icon fas fa-chevron-right"></i>
                         </button></Link>
-                        <Link to={'/user/0'} className='Link-login'  >  <button className="button login__submit">
-                            <span className="button__text">Start Shopping</span>
-                            <i className="button__icon fas fa-chevron-right"></i>
-                        </button></Link>
+                        <Link to={'/user'} onClick={() => {
+                            window.localStorage.userid = 0;
+                        }}
+                            className='Link-login'  >  <button className="button login__submit">
+                                <span className="button__text">Start Shopping</span>
+                                <i className="button__icon fas fa-chevron-right"></i>
+                            </button></Link>
                     </div>
 
                 </div>

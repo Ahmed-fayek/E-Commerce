@@ -1,9 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import './../../../node_modules/bootstrap/dist/js/bootstrap.js';
+import Counter from '../services/Counter';
 function LogIn() {
+
+
     let [users, setUser] = useState();
     useEffect(() => {
         fetch('http://localhost:9000/userinfo').then((res) => res.json()).then((data) => setUser(data))
@@ -15,10 +18,15 @@ function LogIn() {
         let password = document.getElementById('password').value;
         users.map((el) => {
             if (userName === el.username && password === el.password) {
-                navigate(`/user/${el.id}`)
+                window.localStorage.userid = el.id;
+                window.localStorage.username = el.username;
+                navigate(`/user/`)
+                console.log(window.localStorage.username)
             }
             else if (userName === 'Admin' && password === 'Admin') {
-                navigate(`/user/-1`)
+                window.localStorage.userid = -1;
+
+                navigate(`/user`)
 
             } else {
                 document.getElementById('wrong-user-info').innerText = 'wrong user or Password';
@@ -52,10 +60,12 @@ function LogIn() {
                             <span className="button__text">Register</span>
                             <i className="button__icon fas fa-chevron-right"></i>
                         </button></Link>
-                        <Link to={'/user/0'} className='Link-login'  >  <button className="button login__submit">
-                            <span className="button__text">Start Shopping</span>
-                            <i className="button__icon fas fa-chevron-right"></i>
-                        </button></Link>
+                        <Link to={'/user'} className='Link-login' onClick={() => {
+                            window.localStorage.userid = 0;
+                        }} >  <button className="button login__submit">
+                                <span className="button__text">Start Shopping</span>
+                                <i className="button__icon fas fa-chevron-right"></i>
+                            </button></Link>
                     </div>
 
                 </div>
@@ -66,6 +76,7 @@ function LogIn() {
                     <span className="screen__background__shape screen__background__shape1"></span>
                 </div>
             </div>
-        </div></>)
+        </div>
+    </>)
 }
 export default LogIn;

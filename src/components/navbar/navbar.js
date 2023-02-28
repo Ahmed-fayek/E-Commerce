@@ -2,13 +2,12 @@
 import { Link } from "react-router-dom";
 import './../all.min.css'
 import './nav.css'
-
 function Navbar(props) {
-    const { userid } = props;
-
+    let userid = window.localStorage.userid;
+    let username = window.localStorage.username;
     let x = '';
     if (userid < 0) {
-        x = <Link to={`/user/${userid}/products`} className="w-co nav-link" ><span className="w-co">Manage products</span> </Link >
+        x = <Link to={`/user/products`} className="w-co nav-link" ><span className="w-co">Manage products</span> </Link >
     }
     let toggle = 0;
     window.addEventListener("resize", function () {
@@ -32,12 +31,16 @@ function Navbar(props) {
         <>
             <div className="navb">
                 <div className="r-navb">
-                    <Link to={`/user/${userid}`} className="navbar-brand"><i className="fa-solid fa-store w-co "><span className="w-co marketko">Marketko</span></i> </Link>
-                    <Link className="nav-link active " aria-current="page" to={`/user/basket/${userid}`}>
+                    <Link to={`/user/`} className="navbar-brand"><i className="fa-solid fa-store w-co "><span className="w-co marketko">Marketko</span></i> </Link>
+                    <Link className="nav-link active " aria-current="page" to={`/user/basket/`}>
                         <div className="show-bas">
                             <i className="w-co  fa-solid fa-cart-shopping"></i>
                             <p >Go to cart</p></div>
-                    </Link>                </div>
+                    </Link>
+                </div>
+                <p className="welcome-user ">
+                    Welcome {username}
+                </p>
                 <div className="l-navb">
                     <div onClick={show} className='bars'>
                         <span></span><span></span><span></span></div>
@@ -50,7 +53,7 @@ function Navbar(props) {
                                 }
                             </li>
                             <li className="nav-item">
-                                <Link className=" nav-link" aria-current="page" to={`/user/${userid}`}><span className="w-co">Home</span></Link>
+                                <Link className=" nav-link" aria-current="page" to={`/user/`}><span className="w-co">Home</span></Link>
                             </li>
 
                             <li className="nav-item">
@@ -69,7 +72,7 @@ function Navbar(props) {
                                 }
                             </li>
                             <li className="  nav-item">
-                                <Link className=" nav-link active" aria-current="page" to={`/user/${userid}`}><span className="w-co">Home</span></Link>
+                                <Link className=" nav-link active" aria-current="page" to={`/user/`}><span className="w-co">Home</span></Link>
                             </li>
 
                             <li className="nav-item">

@@ -5,35 +5,59 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function Product(props) {
-    let { userid } = useParams()
+    let userid = window.localStorage.userid;
     const { product } = props;
     let [userProds, setuserProds] = useState();
     useEffect(() => {
         fetch('http://localhost:9000/users').then((res) => res.json()).then((data) => setuserProds(data))
-    }, [])
-    let prodid = product.id;
+    }, [userProds])
 
     const Addproduct = (e) => {
+        let exist = 0;
+        let cartd = 0;
+        let curramount = 0
+        userProds.map((prod) => {
+            if (e.id === prod.products[0].prodid && prod.userrrid === userid) {
+                exist = 1;
+                cartd = prod.id;
+                curramount = prod.products[0].amount;
+            } else {
+            }
+        })
         Swal.fire({
-            title: `Add ${e.title} to cart`,
-            showCancelButton: true
-        }).then((data) => {
+            title: `Add  <input id='amount' value='${curramount}'></input>to cart`,
 
-            if (data.isConfirmed) {
+            showCancelButton: true,
+        }).then((data) => {
+            let amount = document.getElementById('amount');
+            if (data.isConfirmed && exist === 0) {
                 axios({
                     method: 'post',
                     url: `http://localhost:9000/users`,
-                    data: {
-                        title: e.title,
-                        price: e.price,
-                        description: e.description,
-                        category: e.category,
-                        image: e.image,
-                        rating: {
-                            rate: e.rating.rate,
-                            count: e.rating.count
-                        },
-                        userrrid: userid
+                    data:
+                    {
+                        products: [
+                            {
+                                prodid: e.id,
+                                amount: amount.value ? amount.value : 1
+                            }
+                        ],
+                        userrrid: userid,
+                    }
+                })
+            } else if (data.isConfirmed && exist === 1) {
+                axios({
+                    method: 'put',
+                    url: `http://localhost:9000/users/${cartd}`,
+                    data:
+                    {
+                        products: [
+                            {
+                                prodid: e.id,
+                                amount: amount.value
+                            }
+                        ],
+                        userrrid: userid,
                     }
                 })
             }
@@ -53,8 +77,11 @@ function Product(props) {
                 <div className="card">
                     <div className="px-2 red text-uppercase">new</div>
                     <div className="d-flex justify-content-center">
-                        <img src={product.image}
-                            className="product" alt="" />
+                        <Link to={`/user/products/${product.id}`}>
+
+                            <img src={product.image}
+                                className="product" alt="" ></img>
+                        </Link>
                     </div>
                     <b className="px-2">
                         <p className="h4 p-title">{product.title} </p>
@@ -83,16 +110,12 @@ function Product(props) {
                         <div className="btns">
 
                             <span onClick={() => { Addproduct(product) }} className="Basket-b bottom btn btn-primary " ><span id="addtocart">Add to cart</span></span>
-                            <Link className="bottom btn btn-primary " to={`/user/${userid}/products/${product.id}`}>Go To Details</Link>
 
                         </div>
 
                     </div>
 
                 </div>
-
-
-
             </div>
 
         </>
