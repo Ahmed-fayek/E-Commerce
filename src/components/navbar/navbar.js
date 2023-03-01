@@ -4,7 +4,17 @@ import './../all.min.css'
 import './nav.css'
 function Navbar(props) {
     let userid = window.localStorage.userid;
+    let loginconfirm = '';
+    let welcomeuser = '';
     let username = window.localStorage.username;
+
+    if (userid > 0) {
+        loginconfirm = 'Log out';
+        welcomeuser = username;
+    } else {
+        loginconfirm = 'LogIn';
+        welcomeuser = ''
+    }
     let x = '';
     if (userid < 0) {
         x = <Link to={`/user/products`} className="w-co nav-link" ><span className="w-co">Manage products</span> </Link >
@@ -31,7 +41,7 @@ function Navbar(props) {
         <>
             <div className="navb">
                 <div className="r-navb">
-                    <Link to={`/user/`} className="navbar-brand"><i className="fa-solid fa-store w-co "><span className="w-co marketko">Marketko</span></i> </Link>
+                    <Link to={`/user/`} className="navbar-brand "><i className="fa-solid fa-store w-co marketko"><span className="w-co marketko">Marketko</span></i> </Link>
                     <Link className="nav-link active " aria-current="page" to={`/user/basket/`}>
                         <div className="show-bas">
                             <i className="w-co  fa-solid fa-cart-shopping"></i>
@@ -39,7 +49,7 @@ function Navbar(props) {
                     </Link>
                 </div>
                 <p className="welcome-user ">
-                    Welcome {username}
+                    Welcome {welcomeuser}
                 </p>
                 <div className="l-navb">
                     <div onClick={show} className='bars'>
@@ -57,7 +67,7 @@ function Navbar(props) {
                             </li>
 
                             <li className="nav-item">
-                                <Link className=" nav-link" to={'/'}><span className="w-co">LogIn</span></Link>
+                                <Link className=" nav-link" to={'/'}><span className="w-co">{loginconfirm}</span></Link>
                             </li>
 
 

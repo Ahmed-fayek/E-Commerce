@@ -18,7 +18,6 @@ function Cards() {
                     )
                 })}
             </div>
-
         </div>
     )
 }

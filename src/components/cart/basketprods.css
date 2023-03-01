@@ -5,6 +5,7 @@
 
 .basket .container {
     width: 100%;
+
 }
 
 .del-Basket-b {
@@ -31,6 +32,7 @@
     justify-content: space-around;
     margin: auto;
     flex-wrap: wrap;
+    gap: 25px;
 }
 
 .basket-flex .rounded-3 {
@@ -88,6 +90,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
 }
 
 p.h4 {
@@ -100,12 +107,12 @@ p.h4 {
 
 .fa-star,
 .reviews {
-    color: #daa520;
+    color: #da9f0d;
 }
 
 div.h4 {
     font-size: 1.8rem;
-    color: #d4a838;
+    color: #da9f0d;
     font-family: 'Lora', serif;
     margin: 0;
     max-height: 50px;
@@ -115,16 +122,59 @@ div.h4 {
     font-size: 1.1rem;
     height: 100px;
     margin-bottom: auto;
+    margin-top: 20px;
 }
 
 .card {
     position: relative;
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+
+
+.card::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 500px;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    background-color: #000000;
 }
 
 .card:hover {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background-size: 300px;
+    background-repeat: no-repeat;
     border: 1px solid #000;
-    box-shadow: 3px 3px 30px rgb(166, 255, 144);
+    box-shadow: 5px 5px 10px rgba(0, 79, 95, 0.788);
+
 }
+
+
+.card:hover img {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
 
 .red {
     background-color: #e03e3e;
@@ -139,6 +189,7 @@ div.h4 {
 a:hover {
     text-decoration: none;
 }
+
 
 @media(max-width:800px) {
     .wrapper {
@@ -168,4 +219,18 @@ a:hover {
     div.text-muted {
         font-size: 0.75rem;
     }
+}
+
+.input-val {
+    width: 60px;
+    text-align: center;
+}
+
+.payment {
+    padding: 25px;
+}
+
+#wrong-data {
+    color: #e03e3e;
+    text-align: center;
 }

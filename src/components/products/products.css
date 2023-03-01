@@ -1,0 +1,9 @@
+.prods-con {
+    margin: 40px;
+    min-height: 78vh;
+}
+
+.edit-btns {
+    display: flex;
+    gap: 10px;
+}

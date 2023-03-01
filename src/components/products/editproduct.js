@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import './products.css'
 function EditProduct() {
     let { productId } = useParams()
     let userid = window.localStorage.userid;
@@ -42,7 +43,7 @@ function EditProduct() {
         });
     }
 
-    return (<>
+    return (<div className="prods-con">
         <h1>Add new product</h1>
         <form onSubmit={formSub}>
             <div className="mb-3">
@@ -64,9 +65,10 @@ function EditProduct() {
                 <label className="form-label"><small>the old price is {prod.price}</small></label>
 
             </div>
-
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={`/user/products`} className="btn btn-danger">cancel</Link>
-        </form></>)
+            <div className="edit-btns">
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to={`/user/products`} className="btn btn-danger">cancel</Link>
+            </div>
+        </form></div>)
 }
 export default EditProduct;

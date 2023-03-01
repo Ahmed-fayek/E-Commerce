@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from 'axios';
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+import './products.css'
+import Navbar from "../navbar/navbar";
 
 function Add() {
     let userid = window.localStorage.userid;
@@ -24,24 +26,28 @@ function Add() {
         });
     }
 
-    return (<>
-        <h1>Add new product</h1>
-        <form onSubmit={formSub}>
-            <div className="mb-3">
-                <label className="form-label">Product Name</label>
-                <input onChange={(e) => { settitle(e.target.value) }} type="text" className="form-control" id="prodTitle" />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">description</label>
-                <input onChange={(e) => { setdescription(e.target.value) }} type="text" className="form-control" id="prodDescription" />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">price</label>
-                <input onChange={(e) => { setprice(+e.target.value) }} type="text" className="form-control" id="prodPrice" />
-            </div>
-
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={`/user/products`} className="btn btn-danger">Cancel </Link>
-        </form></>)
+    return (
+        <>
+            <Navbar />
+            <div className="prods-con">
+                <h1>Add new product</h1>
+                <form onSubmit={formSub}>
+                    <div className="mb-3">
+                        <label className="form-label">Product Name</label>
+                        <input onChange={(e) => { settitle(e.target.value) }} type="text" className="form-control" id="prodTitle" />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">description</label>
+                        <input onChange={(e) => { setdescription(e.target.value) }} type="text" className="form-control" id="prodDescription" />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">price</label>
+                        <input onChange={(e) => { setprice(+e.target.value) }} type="text" className="form-control" id="prodPrice" />
+                    </div>
+                    <div className="edit-btns">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <Link to={`/user/products`} className="btn btn-danger">Cancel </Link>
+                    </div>
+                </form></div></>)
 }
 export default Add;

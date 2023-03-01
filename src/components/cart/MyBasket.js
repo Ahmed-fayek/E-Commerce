@@ -10,8 +10,6 @@ function MyBasket() {
     let [allprods, setallprods] = useState([]);
     let [userprods, setuserprods] = useState([]);
     let subtotal = 0;
-
-
     useEffect(() => {
         fetch(`http://localhost:9000/users/`)
             .then((res) => res.json())
@@ -22,12 +20,21 @@ function MyBasket() {
             .then((res) => res.json())
             .then((data) => setallprods(data))
     }, [])
-
+    let typeNameval = document.getElementById('typeName');
+    let typeTextval = document.getElementById('typeText');
+    let typeExpval = document.getElementById('typeExp');
+    let typecvvval = document.getElementById('typecvv');
+    let wrongData = document.getElementById('wrong-data');
     const buyConfirm = () => {
-        Swal.fire({
-            title: `Confirm `,
-            showCancelButton: true
-        })
+        console.log(typeNameval.value != '');
+        if (typeNameval.value != '' && typeTextval.value != '' && typecvvval.value != '' && typeExpval.value != '') {
+            Swal.fire({
+                title: `Confirm Buying`,
+                showCancelButton: true
+            })
+        } else {
+            wrongData.innerText = 'pleace complete your data'
+        }
     }
 
     fprods.map((ele) => {
@@ -70,7 +77,7 @@ function MyBasket() {
                         {
                             userprods.map((el) => {
                                 return (
-                                    <div key={el.id}>
+                                    <div key={el.user.id}>
                                         <BasketProduct allproduct={el} />
                                     </div>
                                 )
@@ -79,13 +86,13 @@ function MyBasket() {
 
                             })
 
+
                         }
                     </div>
                 </div>
 
 
-                {/* ... */}
-                <div className="card bg-primary text-white rounded-3">
+                <div className="payment bg-primary text-white rounded-3">
                     <div className="card-body">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <h5 className="mb-0">Card details</h5>
@@ -117,7 +124,7 @@ function MyBasket() {
                             <div className="row mb-4">
                                 <div className="col-md-6">
                                     <div className="form-outline form-white">
-                                        <input type="text" id="typeExp" className="form-control form-control-lg"
+                                        <input type="month" id="typeExp" className="form-control form-control-lg"
                                             placeholder="MM/YYYY" size="7" minLength="7" maxLength="7" />
                                         <label className="form-label" >Expiration</label>
                                     </div>
@@ -151,7 +158,7 @@ function MyBasket() {
 
                             </p>
                         </div>
-
+                        <h5 id='wrong-data'></h5>
                         <button onClick={buyConfirm} type="button" className="btn btn-info btn-block btn-lg">
                             <div className="d-flex justify-content-between">
                                 <span>Buy now</span><i className="fas fa-long-arrow-alt-right ms-2"> </i>

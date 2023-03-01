@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './cards.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -25,7 +25,7 @@ function Product(props) {
             }
         })
         Swal.fire({
-            title: `Add  <input id='amount' value='${curramount}'></input>to cart`,
+            title: `Add<br><input type='number' class='input-val' id='amount' value='${curramount}' min="0"></input><br>to cart`,
 
             showCancelButton: true,
         }).then((data) => {
@@ -72,15 +72,14 @@ function Product(props) {
 
         <>
 
-            <div className="wrapper rounded bg-white">
-
+            <div className="wrapper rounded backg-white">
                 <div className="card">
                     <div className="px-2 red text-uppercase">new</div>
                     <div className="d-flex justify-content-center">
-                        <Link to={`/user/products/${product.id}`}>
+                        <Link className="product" to={`/user/products/${product.id}`}>
 
                             <img src={product.image}
-                                className="product" alt="" ></img>
+                                alt="" ></img>
                         </Link>
                     </div>
                     <b className="px-2">
@@ -112,7 +111,7 @@ function Product(props) {
                             <span onClick={() => { Addproduct(product) }} className="Basket-b bottom btn btn-primary " ><span id="addtocart">Add to cart</span></span>
 
                         </div>
-
+                        <div className="animated-background"></div>
                     </div>
 
                 </div>

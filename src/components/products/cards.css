@@ -3,7 +3,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 25px;
 }
 
 .prods-containerr .wrapper {
@@ -16,16 +15,6 @@
     flex-wrap: wrap;
     gap: 50px;
     justify-content: space-around;
-}
-
-.det-view {
-    max-width: 450px;
-    padding: 20px;
-}
-
-.det-view .card {
-    width: 100%;
-    margin-top: 35px;
 }
 
 .similar-products {
@@ -47,6 +36,28 @@
 
 .similar-products-view .card {
     margin: auto;
+}
+
+
+.wrapper .card .btns {
+    transition: all .5s ease-in;
+    transform: translateY(100px);
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    -o-transform: translateY(100px);
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.wrapper .card:hover .btns {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
 }
 
 .del-Basket-b {
