@@ -22,8 +22,7 @@ code {
 .main-page .slider {
   height: 80vh;
   width: 100%;
-  background-image: url('./components/images/image3.png');
-  background-size: cover;
+
 }
 
 .main-page .main-view {

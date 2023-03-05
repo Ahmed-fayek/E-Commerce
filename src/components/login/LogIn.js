@@ -44,11 +44,11 @@ function LogIn() {
                     <div className="login">
                         <div className="login__field">
                             <i className="login__icon fas fa-user"></i>
-                            <input id='userName' type="text" className="login__input" placeholder="User name / Email" />
+                            <input autoComplete="off" id='userName' type="text" className="login__input" placeholder="User name / Email" />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock"></i>
-                            <input id='password' type="password" className="login__input" placeholder="Password" />
+                            <input autoComplete="off" id='password' type="password" className="login__input" placeholder="Password" />
                         </div>
                         <p id='wrong-user-info'></p>
                         <div onClick={() => { getUser() }} className='Link-login'  >  <button className="button login__submit">

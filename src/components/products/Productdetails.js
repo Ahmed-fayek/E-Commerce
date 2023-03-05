@@ -18,10 +18,9 @@ function ProductDetails() {
 
     return (<div className="prods-dets">
 
-        <div className="wrapper rounded bg-white det-view">
+        <div className="wrapper rounded det-view">
             <Product product={product} />
         </div>
-
         <div className="similar-products">
 
             <h1> Similar products</h1>

@@ -6,10 +6,10 @@ nav {
 
 
 .Lcontainer {
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
     overflow-y: hidden;
 }
 
@@ -34,8 +34,7 @@ nav {
     right: 0;
     bottom: 0;
     z-index: 0;
-    -webkit-clip-path: inset(0 0 0 0);
-    clip-path: inset(0 0 0 0);
+    overflow: hidden;
 }
 
 .screen__background__shape {

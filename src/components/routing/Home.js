@@ -1,8 +1,9 @@
 import './../../index.css';
 import { Routes, Route, Link } from 'react-router-dom';
-import Slider from '../slider/slider';
+
 import Cards from '../products/cards';
-function Home(props) {
+import Slider from '../landing/slider';
+function Home() {
   return (<div className='main-page'>
     <div className='slider'>
       <Slider />
@@ -12,9 +13,7 @@ function Home(props) {
         <Route path='/' element={<>
           <Cards /></>}>
         </Route>
-
       </Routes>
-
     </div>
   </div>
   )

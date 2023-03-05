@@ -41,7 +41,6 @@ function Filter() {
                                 <Link key={el} to={`/user/${el}`}  >{el}</Link>
                             )
                         })
-
                     }
                     <Link to={`/user/`}  >All</Link>
 

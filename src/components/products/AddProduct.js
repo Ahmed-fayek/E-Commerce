@@ -1,12 +1,13 @@
 import { useState } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-
+import imagesrc from './../images/image2.jpeg';
 import './products.css'
 import Navbar from "../navbar/navbar";
 
 function Add() {
     let userid = window.localStorage.userid;
+
     let navigate = useNavigate();
     const [title, settitle] = useState('')
     const [price, setprice] = useState(0)
@@ -19,7 +20,12 @@ function Add() {
             data: {
                 title,
                 price,
-                description
+                description,
+                image: imagesrc,
+                rating: {
+                    rate: 0,
+                    count: 0
+                }
             }
         }).then((data) => {
             navigate(`/user/products`)

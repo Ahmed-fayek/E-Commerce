@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto+Slab&display=swap');
+
 .prods-containerr {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: 0 50px 50px 50px;
 }
 
 .prods-containerr .wrapper {
@@ -65,6 +68,287 @@
     height: 40px;
 }
 
-#amount :placeholder-shown {
-    font-size: 5px;
+
+
+.basket {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.basket .container {
+    width: 100%;
+
+}
+
+.del-Basket-b {
+    padding-bottom: 0;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.justify-content-between {
+    align-items: center;
+}
+
+.justify-content-between span {
+    background-color: transparent;
+    margin: 0;
+}
+
+.basket-flex {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.basket-flex .rounded-3 {
+    max-height: 800px;
+}
+
+.basket .left-bas {
+    width: 800px;
+    flex-basis: 1;
+}
+
+
+
+.btns {
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+}
+
+.bottom-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card img {
+    object-fit: contain;
+    width: 80%;
+    min-height: 350px;
+    max-height: 180px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+p.h4 {
+    font-family: 'Roboto Slab', serif;
+}
+
+.rating {
+    font-size: 0.7rem;
+}
+
+.rate-bg {
+    width: 100%;
+}
+
+.p-title {
+    color: #ffc83e;
+    position: absolute;
+    min-height: 220px;
+    padding: 0 10px;
+    left: 0;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    line-height: 25px;
+    font-size: 1.1rem;
+    top: 110px;
+    text-shadow: 2px 2px 2px rgba(136, 2, 2, 0.966);
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+.rating-trans {
+    transform: translateX(300px);
+    -webkit-transform: translateX(300px);
+    -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -o-transform: translateX(300px);
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+.card {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    padding: 20px;
+    overflow: hidden;
+    height: 370px;
+    width: 250px;
+    border: .5px solid #222;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.card:hover {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    border: 1px solid #000;
+    box-shadow: 5px 5px 10px rgba(0, 79, 95, 0.788);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    z-index: 2;
+}
+
+.card:hover .rating-trans {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.card:hover .p-title {
+    height: auto;
+    top: 0;
+    background-color: #05050579;
+
+}
+
+.card:hover img {
+    min-height: 200px;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.price-trans {
+    font-size: 1.5rem;
+    color: #da9f0d;
+    font-family: 'Lora', serif;
+    margin: auto;
+    transition: all .5s ease-in;
+    transform: translateX(-250px);
+    -webkit-transform: translateX(-250px);
+    -moz-transform: translateX(-250px);
+    -ms-transform: translateX(-250px);
+    -o-transform: translateX(-250px);
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.card:hover .price-trans {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.red {
+    background-color: #e03e3e;
+    position: absolute;
+    color: #fff;
+    border-radius: 5px;
+    right: 5px;
+    top: 5px;
+    font-size: 0.9rem;
+    z-index: 3;
+}
+
+
+
+@media(max-width:800px) {
+    .wrapper {
+        margin: 20px 10px;
+    }
+
+    p.h4 {
+        font-size: 1.35rem;
+        padding-top: 10px;
+    }
+}
+
+@media(max-width:767px) {
+    .wrapper {
+        max-width: 500px;
+        margin: 20px auto;
+
+    }
+}
+
+@media(max-width:424px) {
+    .wrapper {
+        width: 100%;
+        margin: auto;
+    }
+
+    div.text-muted {
+        font-size: 0.75rem;
+    }
+}
+
+.input-val {
+    width: 60px;
+    text-align: center;
+}
+
+.alert-content {
+    margin: auto;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #b9b7b7;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.alert-content p {
+    color: black;
+}
+
+.payment {
+    padding: 25px;
+}
+
+#wrong-data {
+    color: #e03e3e;
+    text-align: center;
 }

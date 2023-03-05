@@ -48,18 +48,18 @@ function EditProduct() {
         <form onSubmit={formSub}>
             <div className="mb-3">
                 <label className="form-label">Product Name</label>
-                <input onChange={(e) => { settitle(e.target.value) }} type="text" className="form-control" id="prodTitle" />
+                <input autocomplete="off" onChange={(e) => { settitle(e.target.value) }} type="text" className="form-control" id="prodTitle" />
                 <label className="form-label"><small>the old name is {prod.title}</small></label>
             </div>
             <div className="mb-3">
                 <label className="form-label">description </label>
-                <input onChange={(e) => { setdescription(e.target.value) }} type="text" className="form-control" id="prodDescription" />
+                <input autocomplete="off" onChange={(e) => { setdescription(e.target.value) }} type="text" className="form-control" id="prodDescription" />
                 <label className="form-label"><small>the old description is {prod.description}</small></label>
 
             </div>
             <div className="mb-3">
                 <label className="form-label">price </label>
-                <input onChange={(e) => {
+                <input autocomplete="off" onChange={(e) => {
                     setprice(+e.target.value);
                 }} type="text" className="form-control" id="prodPrice" />
                 <label className="form-label"><small>the old price is {prod.price}</small></label>

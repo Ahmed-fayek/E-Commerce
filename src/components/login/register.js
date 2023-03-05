@@ -14,9 +14,10 @@ function Register() {
         let userName = document.getElementById('userName').value;
         let password = document.getElementById('password').value;
         let exist = 0;
+        let msg = document.getElementById('wrong-user-info')
         users.map((el) => {
             if (userName === el.username && password === el.password) {
-                document.getElementById('wrong-user-info').innerText = 'user is exsist';
+                msg.innerText = 'user is exsist';
                 exist = 1;
             }
         })
@@ -30,15 +31,16 @@ function Register() {
                         password: password
                     }
                 }).then((data) => {
-                    document.getElementById('wrong-user-info').innerText = 'user is add LogIn Now';
+                    msg.innerText = 'Done! LogIn Now';
 
                 });
             } else {
-                document.getElementById('wrong-user-info').innerText = 'add user name and password';
+                msg.innerText = 'add user name and password';
 
             }
         }
     }
+
     return (<>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -51,11 +53,11 @@ function Register() {
                     <div className="login">
                         <div className="login__field">
                             <i className="login__icon fas fa-user"></i>
-                            <input id='userName' type="text" className="login__input" placeholder="User name / Email" />
+                            <input autoComplete="off" id='userName' type="text" className="login__input" placeholder="User name / Email" />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock"></i>
-                            <input id='password' type="password" className="login__input" placeholder="Password" />
+                            <input autoComplete="off" id='password' type="password" className="login__input" placeholder="Password" />
                         </div>
                         <p id='wrong-user-info'></p>
                         <div onClick={() => { putUser() }} className='Link-login'  >  <button className="button login__submit">

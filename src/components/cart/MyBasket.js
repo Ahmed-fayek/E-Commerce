@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './basketprods.css'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Navbar from '../navbar/navbar';
 import BasketProduct from './basketprods';
@@ -11,7 +11,7 @@ function MyBasket() {
     let [userprods, setuserprods] = useState([]);
     let subtotal = 0;
     useEffect(() => {
-        fetch(`http://localhost:9000/users/`)
+        fetch(`http://localhost:9000/cart/`)
             .then((res) => res.json())
             .then((json) => setfprods(json))
     }, [])
@@ -26,8 +26,8 @@ function MyBasket() {
     let typecvvval = document.getElementById('typecvv');
     let wrongData = document.getElementById('wrong-data');
     const buyConfirm = () => {
-        console.log(typeNameval.value != '');
         if (typeNameval.value != '' && typeTextval.value != '' && typecvvval.value != '' && typeExpval.value != '') {
+            wrongData.innerText = ''
             Swal.fire({
                 title: `Confirm Buying`,
                 showCancelButton: true
@@ -48,7 +48,6 @@ function MyBasket() {
             })
         }
     })
-
 
 
     return (<>
@@ -74,20 +73,25 @@ function MyBasket() {
 
                     </div>
                     <div className='basket-prods-view'>
-                        {
-                            userprods.map((el) => {
-                                return (
-                                    <div key={el.user.id}>
-                                        <BasketProduct allproduct={el} />
-                                    </div>
-                                )
+                        <div className="prods-con">
+
+                            {
+                                userprods.map((el) => {
+                                    return (
+                                        <div key={el.user.id}>
+                                            <BasketProduct allproduct={el} />
+                                        </div>
+                                    )
 
 
 
-                            })
+                                })
 
 
-                        }
+                            }
+
+                        </div>
+
                     </div>
                 </div>
 
